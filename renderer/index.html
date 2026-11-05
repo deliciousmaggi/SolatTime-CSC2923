@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; connect-src https://api.waktusolat.app https://api.alquran.cloud; style-src 'self'; img-src 'self' data:">
+  <title>SolatTime - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">SolatTime</div>
+    <nav>
+      <a href="index.html" class="active">Dashboard</a>
+      <a href="reminders.html">Reminders</a>
+    </nav>
+    <div class="clock" id="clock" title="Current time in Malaysia">--:--:--</div>
+  </header>
+
+  <main>
+    
+<section class="verse-hero">
+  <div class="verse-heading">
+    ✦ VERSE OF THE DAY ✦
+  </div>
+
+  <p class="arabic" id="ayahArabic" dir="rtl" lang="ar">
+  </p>
+
+  <p class="verse-translation" id="ayahEnglish">
+    Loading verse...
+  </p>
+
+  <p class="verse-reference" id="ayahRef"></p>
+</section>
+
+    <h1>Today's Prayer Times</h1>
+    <p class="intro">Select your location. This page shows today's prayer times, the time left until the next prayer, and an activity you can do now.</p>
+
+    <div class="toolbar">
+      <label for="zoneSelect">Location:</label>
+      <select id="zoneSelect"></select>
+      <button id="refreshBtn" type="button" class="secondary">Refresh</button>
+      <span id="loading" class="spinner hidden" role="progressbar" aria-label="Loading"></span>
+    </div>
+
+    <div id="message" role="status"></div>
+
+    <section class="layout-even">
+      <div class="panel">
+        <h2>Prayer schedule</h2>
+        <table>
+          <thead>
+            <tr><th scope="col">Time of day</th><th scope="col">Time</th></tr>
+          </thead>
+          <tbody id="timesBody">
+            <tr><td colspan="2" class="empty">Prayer times will appear here.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="stack">
+        <div class="panel">
+          <h2>Next prayer</h2>
+          <p class="next-name" id="nextName">-</p>
+          <p id="countdown">Choose a location to begin.</p>
+        </div>
+        <div class="panel">
+          <h2>Suggested activity</h2>
+          <p id="suggestionMain">-</p>
+          <p id="suggestionExtra" class="extra"></p>
+          <button id="saveSuggestionBtn" type="button">Save as reminder</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel wide-panel">
+      <h2>Date and location</h2>
+      <div class="info-row">
+        <div class="info-list">
+          <p><span class="label">Date:</span> <span id="gregorianText">-</span></p>
+          <p><span class="label">Hijri date:</span> <span id="hijriText">-</span></p>
+          <p><span class="label">Location:</span> <span id="locationText">-</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>

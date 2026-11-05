@@ -1,0 +1,13 @@
+# Node.js dependencies
+node_modules/
+
+# Environment files
+.env
+.env.*
+
+# Electron build files
+dist/
+out/
+
+# Temporary files
+*.log

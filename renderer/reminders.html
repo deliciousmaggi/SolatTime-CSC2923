@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self'; img-src 'self' data:">
+  <title>SolatTime - Reminders</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">SolatTime</div>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="reminders.html" class="active">Reminders</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="toolbar">
+      <h1>Activity reminders</h1>
+    </section>
+    <p class="intro">Plan your daily worship activities. Records are saved on this computer and stay after you close the app.</p>
+
+    <section class="layout-even">
+      <!-- Create and Update -->
+      <div class="panel" id="formPanel">
+        <h2 id="formHeading">Add a reminder</h2>
+        <form id="reminderForm" novalidate>
+          <div class="form-row">
+            <label for="titleInput">Title (required)</label>
+            <input id="titleInput" type="text" maxlength="60" placeholder="Read Surah Al-Mulk after Isyak">
+          </div>
+          <div class="form-row">
+            <label for="prayerInput">Linked prayer or time</label>
+            <select id="prayerInput"></select>
+          </div>
+          <div class="form-row">
+            <label for="timeInput">Reminder time (required)</label>
+            <input id="timeInput" type="time">
+          </div>
+          <div class="form-row">
+            <label for="categoryInput">Category</label>
+            <select id="categoryInput"></select>
+          </div>
+          <div class="form-row">
+            <label for="noteInput">Note (up to 200 characters)</label>
+            <textarea id="noteInput" rows="2" maxlength="200"></textarea>
+          </div>
+          <div class="actions">
+            <button type="submit" id="submitBtn">Save reminder</button>
+            <button type="button" id="cancelBtn" class="secondary hidden">Cancel edit</button>
+          </div>
+        </form>
+        <div id="formMessage" role="status"></div>
+      </div>
+
+      <!-- Read, Edit and Delete -->
+      <div class="panel">
+        <h2>Saved reminders</h2>
+        <div class="filter-row">
+          <input id="searchInput" type="search" placeholder="Search reminders" aria-label="Search reminders">
+          <select id="filterCategory" aria-label="Filter by category"></select>
+        </div>
+        <p class="small" id="reminderCount"></p>
+        <ul class="record-list" id="reminderList"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="reminders.js"></script>
+</body>
+</html>
